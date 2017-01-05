@@ -29,3 +29,5 @@ app.listen(3000, () => {
 	console.log('listening on port3000')
 }); 
 
+
+module.exports = {app}; 
