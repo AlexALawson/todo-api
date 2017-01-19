@@ -9,6 +9,7 @@ var {mongoose} = require('./db/mongoose');
 
 var {Todo} = require('./models/todo'); 
 var {User} = require('./models/user');
+var {authenticate} = require('./middleware/authenticate'); 
 
 
 var app = express(); 
@@ -118,4 +119,7 @@ app.listen(port, () => {
 }); 
 
 
+app.get('/users/me', authenticate, (req, res) => {
+	res.send(req.user);
+});
 module.exports = {app}; 
